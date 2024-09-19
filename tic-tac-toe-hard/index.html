@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Усложненные Крестики-Нолики</title>
+    <link rel="stylesheet" href="../modules/styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="../modules/confetti.js" defer></script>
+    <script src="../modules/scoreboard.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="bot.js" defer></script>
+</head>
+<body>
+    <div class="game-container">
+        <h2 id="player-turn">Ход игрока: 1 (Крестики)</h2>
+        <div id="main-grid" class="grid"></div>
+        <button id="restart-btn">Перезапуск</button>
+        <button id="bot-btn">БОТ</button>
+    </div>
+    <div id="scoreboard">
+        <div class="score" id="player1-score">
+            <span id="player1-wins">0</span>
+            <span class="player-label">Игрок 1</span>
+        </div>
+        <div class="score" id="player2-score">
+            <span id="player2-wins">0</span>
+            <span class="player-label">Игрок 2</span>
+        </div>
+        <button id="reset-scoreboard">Сбросить счет</button>
+    </div>    
+    <div class="spots">
+        <div id="spot1"></div>
+        <div id="spot2"></div>
+    </div>
+</body>
+</html>
