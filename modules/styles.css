@@ -57,3 +57,11 @@
 #player1-wins, #player2-wins {
     font-size: 2em;
 }
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}

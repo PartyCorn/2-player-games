@@ -1,3 +1,21 @@
+// Добавление побед на страницу
+function createScoreboard() {
+    const scoreboardHTML = `
+        <div id="scoreboard">
+            <div class="score" id="player1-score">
+                <span id="player1-wins">0</span>
+                <span class="player-label">Игрок 1</span>
+            </div>
+            <div class="score" id="player2-score">
+                <span id="player2-wins">0</span>
+                <span class="player-label">Игрок 2</span>
+            </div>
+            <button id="reset-scoreboard">Сбросить счет</button>
+        </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', scoreboardHTML);
+}
+
 // Инициализация побед
 function initializeScoreboard() {
     let player1Wins = localStorage.getItem('player1Wins') || 0;
@@ -31,10 +49,11 @@ function resetScoreboard() {
     document.getElementById('player2-wins').textContent = 0;
 }
 
-// Обработчик для кнопки сброса
-document.getElementById('reset-scoreboard').addEventListener('click', resetScoreboard);
 
 // Вызов инициализации при загрузке страницы
 window.onload = function() {
+    createScoreboard();
     initializeScoreboard();
+    // Обработчик для кнопки сброса
+    document.getElementById('reset-scoreboard').addEventListener('click', resetScoreboard);
 };

@@ -89,6 +89,10 @@ button {
     background-color: #4569a0;
 }
 
+#info-btn {
+    background-color: #606060;
+}
+
 .active {
     border: 2px solid #4CAF50; /* Зеленая рамка для активной ячейки */
 }

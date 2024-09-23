@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игры для 2 игроков</title>
+    <link rel="stylesheet" href="./modules/styles.css">
+    <script src="./modules/confetti.js" defer></script>
+    <script src="./modules/scoreboard.js" defer></script>
+</head>
+<body>
+    <h1>Выберите Игру</h1>
+    <style>
+        :root {
+            --bg-dark: #1e2122;
+            --bg-light: #f4f4f4;
+            --text-dark: #000;
+            --text-light: #e8e6e3;
+            --text-light-2: #c7c4c0;
+            --border-light: #606060;
+            --border-dark: #333;
+            --border-dark-hover: #3f3f3f;
+            --btn-success: #058c42;
+            --btn-seccess-hover: #16db65;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            flex-direction: column;
+        }
+
+        .game-container {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            align-items: center;
+            flex-direction: column;
+        }
+        .game-item {
+            width: 700px;
+            height: 150px;
+            overflow: hidden;
+            transition: transform .3s ease, box-shadow .3s ease, background .3s ease;
+            border-radius: 10px;
+            background-color: var(--border-dark);
+            position: relative;
+        }
+        .game-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: var(--border-dark-hover);
+        }
+        .game-item::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 10px;
+            height: 100%;
+            background: var(--btn-success);
+            transition: width .3s ease, background .3s ease;
+            pointer-events: none;
+        }
+        .game-item:hover::after {
+            content: '';
+            width: 15px;
+            background: var(--btn-seccess-hover);
+        }
+        .game-link {
+            text-decoration: none;
+            color: var(--text-light);
+            display: flex;
+            height: 100%;
+        }
+        .game-image {
+            width: 150px;
+            height: 150px;
+            flex-shrink: 0;
+        }
+        .game-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .game-content {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .game-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .game-description {
+            font-size: 0.9em;
+            color: var(--text-light-2);
+            padding-right: 30px;
+        }
+    </style>
+    <script>
+        function createGameDivs(games) {
+            const container = document.createElement('div');
+            container.className = 'game-container';
+
+            games.forEach(game => {
+                const gameDiv = document.createElement('div');
+                gameDiv.className = 'game-item';
+                
+                const link = document.createElement('a');
+                link.href = game.href;
+                link.className = 'game-link';
+
+                const imgDiv = document.createElement('div');
+                imgDiv.className = 'game-image';
+                const img = document.createElement('img');
+                img.src = game.img;
+                img.alt = game.name;
+                imgDiv.appendChild(img);
+
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'game-content';
+
+                const titleDiv = document.createElement('div');
+                titleDiv.className = 'game-title';
+                titleDiv.textContent = game.name;
+
+                const descDiv = document.createElement('div');
+                descDiv.className = 'game-description';
+                descDiv.textContent = game.description;
+
+                contentDiv.appendChild(titleDiv);
+                contentDiv.appendChild(descDiv);
+
+                link.appendChild(imgDiv);
+                link.appendChild(contentDiv);
+                gameDiv.appendChild(link);
+                container.appendChild(gameDiv);
+            });
+
+            document.body.appendChild(container);
+        }
+
+        const games = [
+            {
+                'name': 'Усложнённые Крестики-Нолики',
+                'href': '/tic-tac-toe-hard',
+                'description': 'Это стратегическая игра, где вам предстоит выигрывать в маленьких сетках, чтобы победить на большом игровом поле.',
+                'img': 'https://i.ibb.co/Sy7tPLt/image.png'
+            }
+        ];
+
+        createGameDivs(games);
+    </script>
+</body>
+</html>
