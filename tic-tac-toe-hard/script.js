@@ -121,9 +121,9 @@ function endGame(winner) {
         playerTurnElement.textContent = `Ничья!`;
     } else {
         playerTurnElement.textContent = `Игрок ${winner === 'X' ? 1 : 2} (${winner}) победил!`;
+        updateScore(winner === 'X' ? 1 : 2);
     }
     gameWon = true;
-    updateScore(winner === 'X' ? 1 : 2);
     launchConfetti();
 }
 
