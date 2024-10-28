@@ -1,0 +1,15 @@
+.history {
+    margin-top: 20px;
+    height: 100px;
+    width: 90%;
+    overflow-y: auto;
+    text-align: left;
+    background-color: #202324;
+    padding: 10px;
+    border-radius: 5px;
+    scrollbar-color: #454a4d #202324;
+}
+
+.guess-buttons {
+    margin-top: 20px;
+}

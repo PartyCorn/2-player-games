@@ -1,0 +1,67 @@
+:root {
+    --bg-dark: #1e2122;
+    --bg-light: #f4f4f4;
+    --text-dark: #000;
+    --text-light: #e8e6e3;
+    --text-light-2: #c7c4c0;
+    --border-light: #606060;
+    --border-dark: #333;
+    --border-dark-hover: #3f3f3f;
+    --btn-success: #058c42;
+    --btn-seccess-hover: #16db65;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    overflow-x: hidden;
+    flex-direction: column;
+}
+
+.game-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.game-container {
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    background-color: #181a1b;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #2b2a33;
+    color: #fff;
+    transition-duration: .2s;
+}
+button:hover {
+    filter: brightness(150%);
+}
+button:disabled {
+    cursor: default;
+}
+button:disabled:hover {
+    filter: none;
+}

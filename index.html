@@ -104,7 +104,18 @@
         .game-title {
             font-size: 1.2em;
             font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .game-tags {
+            display: flex;
+            gap: 5px;
             margin-bottom: 10px;
+        }
+        .game-tag {
+            background-color: var(--border-light);
+            padding: 2px 5px;
+            border-radius: 10px;
+            font-size: small;
         }
         .game-description {
             font-size: 0.9em;
@@ -143,7 +154,18 @@
                 descDiv.className = 'game-description';
                 descDiv.textContent = game.description;
 
+                // add tags
+                const tagsDiv = document.createElement('div');
+                tagsDiv.className = 'game-tags';
+                game.tags.forEach(tag => {
+                    const tagDiv = document.createElement('div');
+                    tagDiv.className = 'game-tag';
+                    tagDiv.textContent = tag;
+                    tagsDiv.appendChild(tagDiv);
+                });
+
                 contentDiv.appendChild(titleDiv);
+                contentDiv.appendChild(tagsDiv);
                 contentDiv.appendChild(descDiv);
 
                 link.appendChild(imgDiv);
@@ -160,7 +182,15 @@
                 'name': 'Усложнённые Крестики-Нолики',
                 'href': 'tic-tac-toe-hard',
                 'description': 'Это стратегическая игра, где вам предстоит выигрывать в маленьких сетках, чтобы победить на большом игровом поле.',
+                'tags': ['2 игрока', 'стратегия', 'интлеллект', 'алгоритм'],
                 'img': 'https://i.ibb.co/Sy7tPLt/image.png'
+            },
+            {
+                'name': 'Дата-угадайка',
+                'href': 'birthdate-guesser',
+                'description': 'Это игра на угадывание, где алгоритм пытается угадать ваш день и месяц рождения с помощью кнопок «раньше» или «позже».',
+                'tags': ['1 игрок', 'рандом', 'алгоритм'],
+                'img': 'https://i.ibb.co/b1GhY9G/date-guesser.png'
             }
         ];
 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Guesser Game</title>
+    
+    <link rel="stylesheet" href="../modules/header/header.css">
+    <script src="../modules/header/header.js" defer></script>
+
+    <link rel="stylesheet" href="../modules/styles.css">
+    <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="../modules/confetti.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Birth Date Guesser</h1>
+    <div class="game-container">
+        <p id="instruction">Let's guess your birth date!</p>
+        <label>
+            <input type="checkbox" id="guessModeToggle" onchange="toggleGuessMode()">
+            Use Random Guessing
+        </label>
+        <p id="current-guess">Current Guess: <strong><span id="guess-display"></span></strong></p>
+        <div class="guess-buttons">
+            <button id="earlier-btn" onclick="guessEarlier()">Earlier</button>
+            <button id="later-btn" onclick="guessLater()">Later</button>
+            <button id="correct-btn" onclick="correctGuess()">Correct</button>
+        </div>
+        <button id="restart-btn" onclick="resetGame()" style="display: none;">Restart</button>
+        <div class="history">
+            <h3>Guess History:</h3>
+            <div id="history-log"></div>
+        </div>
+        <p>Total Attempts: <span id="attempts">1</span></p>
+    </div>
+</body>
+</html>
